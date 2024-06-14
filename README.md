@@ -66,8 +66,8 @@ Expected result: IGPF will list all the links to the barol92's posts whose capti
 <h2>Aims of the program &#127919;</h2>
 <ul>
   <li>
-    Make yourself aware that by plugging a drive into a device, you are always exposing yourself to a potential risk.<br>
-    This is true even if the device belongs to a person you know and trust; it may have been infected by malware that, among other malicious actions, could do exactly what IGPF does, sending the collected data to the attacker.<br>
+    Make yourself aware that by plugging an USB drive into a device, you are always exposing its data to a potential risk.<br>
+    This is true even if the device belongs to a person you know and trust; it may have been infected by a malware that, among other malicious actions, could do exactly what USB Drive Data Stealer does, sending the collected data to the attacker.<br>
     You could solve the problem by using a USB drive containing nonconfidential files whose theft and/or publication would not be a problem for you.
   </li>
   
