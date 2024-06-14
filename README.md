@@ -5,7 +5,7 @@ USB Drive Data Stealer is developed for educational purposes only.<br>
 Responsibility for consequences of using this application remains with the user; <b>I'm not responsible for how you use it</b>.<br>
 
 <h2>What is it for? &#129300;</h2>
-It's a simple tool that steals a drive's data when it is connected to the pc.<br>
+It's a simple tool that steals a drive's data when it is connected to your pc.<br>
 It's currently programmed to steal <b>removable drive</b> (USB flash drives, external hard disks, ...) or <b>CD\DVD</b> data only, but can be easily modified to steal data from <a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.drivetype?view=net-8.0#fields" target="_blank" rel="noopener noreferrer">these</a> drives as well, by simply modifying the if clause <code>if (newDrive.DriveType == DriveType.Removable || ...)</code> of the <code>TMRwaitForDrive_Tick(...)</code> function.
 
 <h2>Three different modes of operation &#49;&#65039;&#8419; &#50;&#65039;&#8419; &#51;&#65039;&#8419;</h2>
@@ -22,12 +22,15 @@ To solve this possible problem I implemented three different modes of operation:
   
   <li>
     <b>Steal all files smaller or equal than a specified size</b><br>
-    
+    Only files smaller or equal than the size you specified (in megabytes) via the GUI will be copied to your PC.<br>
+    This solves the problem explained in the previous point discarding the larger files and, consequently, decreasing the time needed to copy the others.
   </li>
   
   <li>
     <b>Steal only files with specific extensions</b><br>
-    
+    Only files with an extension among those you have listed via the GUI will be copied to your PC.<br>
+    If you are interested in copying only some particular types of files (e.g. PDF, images, audio, ...), this mode of operation is for you.<br>
+    Since all types of files with extensions other than those allowed will not be copied, even in this case, the time required for copying will be shorter.
   </li>
 </ol>
 
@@ -60,7 +63,31 @@ Expected result: IGPF will list all the links to the barol92's posts whose capti
   <img src="Demo/online.gif" title="IGPF is downloading the barol92 JSON files">
 </p>
 
-<h2>Instagram put a limit on the number of requests &#9940;</h2>
+<h2>Aims of the program &#127919;</h2>
+<ul>
+  <li>
+    Make yourself aware that by plugging a drive into a device, you are always exposing yourself to a potential risk.<br>
+    This is true even if the device belongs to a person you know and trust; it may have been infected by malware that, among other malicious actions, could do exactly what IGPF does, sending the collected data to the attacker.<br>
+    You could solve the problem by using a USB drive containing nonconfidential files whose theft and/or publication would not be a problem for you.
+  </li>
+  
+  <li>
+    Illustrate, by means of an engaging program (imo), the basics of C# and event-driven programming, and the ease with which a Windows GUI application can be built using this language.
+  </li>
+
+  <li>
+    Show, for teaching purposes, an example of simple malware.
+  </li>
+  
+  <li>
+    Talking about cybersecurity.
+  </li>
+</ul>
+
+Devo inserire i prerequisiti x far funzionare l'app... framework e dire che è stato fatto cob vs19.
+
+
+<br><br><br><br><br><br><br>
 Whenever you want to search public posts of an Instagram user by keyword, IGPF makes several HTTP GET requests to Instagram, depending on the number of posts that the user has published; the more there are, the more requests it must make.<br>
 If the requests don't come from a logged-in Instagram user (as in the case of IGPF, which doesn't require any login to Instagram (and consequently doesn't have any <a href="https://docs.oceanwp.org/article/487-how-to-get-instagram-access-token" target="_blank" rel="noopener noreferrer">Instagram Access Token</a>)), Instagram, after a certain number of requests, will <a href="https://www.combin.com/blog/action-blocked-on-instagram-what-triggers-and-how-to-get-rid-of-it-70d058a366c9/" target="_blank" rel="noopener noreferrer">temporarily block</a> the IP address where the requests come from.<br>
 Instagram typically unblocks the IP address within 24 hours (from tests I've done there doesn't seem to be an exact number of hours; it often changed from test to test), but it is possible to bypass the block. If your device is connected to the wireless network you can change its IP address by connecting it to the mobile network (and vice versa), as shown below.<br>
