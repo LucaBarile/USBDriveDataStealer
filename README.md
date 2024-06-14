@@ -9,6 +9,23 @@ It's a simple tool that steals a drive's data when it is connected to the pc.<br
 It's currently programmed to steal <b>removable drive</b> (USB flash drives, external hard disks, ...) or <b>CD\DVD</b> data only, but can be easily modified to steal data from <a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.drivetype?view=net-8.0#fields" target="_blank" rel="noopener noreferrer">these</a> drives as well, by simply modifying the if clause <code>if (newDrive.DriveType == DriveType.Removable || ...)</code> of the <code>TMRwaitForDrive_Tick(...)</code> function.
 
 <h2>Three different modes of operation &#49;&#65039;&#8419; &#50;&#65039;&#8419; &#51;&#65039;&#8419;</h2>
+When someone plugs a USB drive into our PC, we don't know how long they will leave it plugged in.<br>
+Suppose, for example, someone asks you to copy some files to their USB drive. Probably the copying of the files will not last very long.... Will USB Drive Data Stealer be able to steal all the contents of the USB drive in time?<br>
+<br>
+To solve this possible problem I implemented three different modes of operation:
+<ol>
+  <li>
+    If the keyword is contained in another word (e.g. keyword = <b>example</b> and word = counter<b>example</b>s), it will still be recognized.
+  </li>
+  
+  <li>
+    Keyword searching is case insensitive (e.g. keyword = hello and word = HeLLo is equivalent to keyword = hello and word = hello).
+  </li>
+  
+  <li>
+    The keyword can contain any symbol (therefore, for example, it can also be an hashtag), with the exception of spaces (otherwise you would be entering several keywords and not just one).
+  </li>
+</ol>
 
 <h2>How it works? &#9881;&#65039;</h2>
 Once the Instagram username and the keyword have been entered, IGPF will list all the links to the user's posts whose caption contains the keyword.<br>
