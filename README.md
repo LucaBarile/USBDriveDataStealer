@@ -15,15 +15,19 @@ Suppose, for example, someone asks you to copy some files to their USB drive. Pr
 To solve this possible problem I implemented three different modes of operation:
 <ol>
   <li>
-    If the keyword is contained in another word (e.g. keyword = <b>example</b> and word = counter<b>example</b>s), it will still be recognized.
+    <b>Steal all device files</b><br>
+    The entire contents of the drive will be copied to your PC.<br>
+    If it contains large files and the data transfer rate is low, the probability of not being able to copy all the data before the drive is unplugged increases.
   </li>
   
   <li>
-    Keyword searching is case insensitive (e.g. keyword = hello and word = HeLLo is equivalent to keyword = hello and word = hello).
+    <b>Steal all files smaller or equal than a specified size</b><br>
+    
   </li>
   
   <li>
-    The keyword can contain any symbol (therefore, for example, it can also be an hashtag), with the exception of spaces (otherwise you would be entering several keywords and not just one).
+    <b>Steal only files with specific extensions</b><br>
+    
   </li>
 </ol>
 
