@@ -96,7 +96,25 @@ Instagram typically unblocks the IP address within 24 hours (from tests I've don
   <img src="Demo/ig_block_bypass.gif" title="Instagram block bypass">
 </p>
 
-<h2>The offline mode &#128244;</h2>
+<h2>What do I need to execute USB Drive Data Stealer? &#9654;</h2>
+You'll need two things:
+<ul>
+  <li>
+    I wrote USB Drive Data Stealer in C# for .NET Frameowrk 4.5 using Visual Studio 2019, so, in order to run it, you must have that version of the framework (or a later one) installed.<br>
+    If it isn't already installed on your OS, you can download it from <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30653" target="_blank" rel="noopener noreferrer">here</a>).
+  </li>
+
+  <li>
+    USBDriveDataStealer.exe<br>
+    You can download it directly from here.<br>
+    If you want to compile it or modify its source code, you can download the zipped project here and recompile it.
+  </li>
+</ul>
+
+
+<br><br><br><br><br><br><br>
+
+
 IGPF saves user's posts data locally after downloading.<br>
 IGPF avoids re-downloading user's posts data if they have already been downloaded in the current day; searches for matches by directly analyzing the already downloaded data.<br>
 <br>
