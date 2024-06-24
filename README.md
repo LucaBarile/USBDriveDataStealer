@@ -65,7 +65,7 @@ This demonstration shows the execution of USB Drive Data Stealer, set to run in 
 </p>
 
 <h2>Notes, limitations and improvements &#128466;&#128721;&#128736;</h2>
-<ul>
+<ol>
   <li>
     Instead of using a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.timers.timer" target="_blank" rel="noopener noreferrer">Timer</a> to detect the arrival\removal of a new drive, you can use the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.management.managementeventwatcher" target="_blank" rel="noopener noreferrer">ManagementEventWatcher</a> class associated with the <code>SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2</code> <a href="https://learn.microsoft.com/it-it/dotnet/api/system.management.wqleventquery"target="_blank" rel="noopener noreferrer">WqlEventQuery</a> where, according to the <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-volumechangeevent#properties" target="_blank" rel="noopener noreferrer">properties</a> of the <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-volumechangeevent" target="_blank" rel="noopener noreferrer">Win32_VolumeChangeEvent</a> class, 2 = Device Arrival and 3 = Device Removal.<br>
   </li>
@@ -88,10 +88,37 @@ This means that the user must re-run the program before another drive is plugged
   <li>
     USB Drive Data Stealer isn't displayed in the Windows taskbar and in the list of active processes shown by the task manager, in order to avoid possible suspicion by the user connecting the drive to the PC.
   </li>
-  
+
+  <li>
+    The "YYYY-MM-DD_hh.mm.ss" format of the subdirectory described above prevents the overwriting of data stolen from different drives on the same day.
+  </li>
+</ol>
+
+As you can read, there are several changes and improvements that can be applied to USB Drive Data Stealer. For example:
+<ul>
+  <li>
+    Solve the problem indicated in step 2 by checking what is actually the new connected drive that makes the L2 list different from L1.
+  </li>
+
+  <li>
+    Solve the problem indicated in step 3 by managing simultaneous copies of files (e.g., using threads) from all drives connected to the PC.
+  </li>
+
+  <li>
+    Solve the problem indicated in step 4 by putting USB Drive Data Stealer back to wait for a drive to be plugged into the PC.
+  </li>
+
+  <li>
+    Implement keyboard shortcuts (such as, Ctrl+Alt+R, Ctrl+Alt+X, ...) to pause, start, restart, terminate or put in background\foreground USB Drive Data Stealer.
+  </li>
+
+  <li>
+    Prevent safe removal of the drive if USB Drive Data Stealer has not finished copying the files to the PC yet.
+  </li>
 </ul>
 
-dire ch equindi è sperimentale e migliorabile. questo è solo uno spunto.
+I developed this project quickly, in my spare time; there're other things that could be done if there was time...<br>
+Feel free to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" target="_blank" rel="noopener noreferrer">fork</a>, edit, improve, and share this project without any problems &#128522;
 
 <h2>Aims of the program &#127919;</h2>
 <ul>
