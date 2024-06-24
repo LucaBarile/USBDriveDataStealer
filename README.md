@@ -48,7 +48,7 @@ At this point, the subfolder <code>YYYY-MM-DD_hh.mm.ss</code> (e.g., 2024-06-24_
 If an error occurs during the copy process (e.g., the target drive is removed), its description will be stored in the <code>_CrashReport.txt</code> log file, which will be saved in the folder initially specified by the user.<br>
 Whether the copy process ends successfully or abnormally, USB Drive Data Stealer will remove itself from the Windows traybar and self-terminate.<br>
 <br>
-Notes:
+Notes and limitations:
 <ul>
   <li>
     Instead of using a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.timers.timer" target="_blank" rel="noopener noreferrer">Timer</a> to detect the arrival\removal of a new drive, you can use the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.management.managementeventwatcher" target="_blank" rel="noopener noreferrer">ManagementEventWatcher</a> class associated with the <code>SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2</code> <a href="https://learn.microsoft.com/it-it/dotnet/api/system.management.wqleventquery"target="_blank" rel="noopener noreferrer">WqlEventQuery</a> where, according to the <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-volumechangeevent#properties" target="_blank" rel="noopener noreferrer">properties</a> of the <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-volumechangeevent" target="_blank" rel="noopener noreferrer">Win32_VolumeChangeEvent</a> class, 2 = Device Arrival and 3 = Device Removal.<br>
@@ -61,11 +61,12 @@ So far so good but... What would happen if the user inserted two floppy disks? A
   </li>
 
   <li>
-    non posso gestire + drive connessi assieme
+    If multiple drives were plugged in, USB Drive Data Stealer would steal files only from the last one (because, as mentioned before, only the last drive listed in L2 is considered the target drive to steal files from).
   </li>
 
   <li>
-    devo riaprire il programma se voglio farlo ripartire x un altra chiavetta
+    If USB Drive Data Stealer finishes copying the files of one drive and, later, another drive (or more than one) is plugged in, no more files will be copied because, as mentioned before, the application self-terminates at the end of the copying process.<br>
+This means that the user must re-run the program before another drive is plugged in.
   </li>
 
   <li>
