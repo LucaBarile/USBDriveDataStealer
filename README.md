@@ -42,24 +42,37 @@ This demonstration shows the execution of USB Drive Data Stealer, set to run in 
 </p>
 
 <h2>How it works? &#9881;&#65039;</h2>
-Once the Instagram username and the keyword have been entered, IGPF will list all the links to the user's posts whose caption contains the keyword.<br>
+After selecting the mode of operation, the folder to save the stolen files and pressing the <code>BTNwait</code> ("Wait for USB Drive connection") button, USB Drive Data Stealer will be minimized to the Windows traybar, store the list of all drives currently connected to the PC (let's call it L1) and wait for a drive to be plugged into the PC.<br>
+Detecting the connection of a new drive to the PC is done by the <code>TMRwaitForDrive</code> timer. It compares, every five seconds, the list of drives currently connected to the PC (let's call it L2) with L1. If L2 contains more drives than those listed in L1, the last drive listed in L2 is considered the target drive to steal files from, according to the user-specified mode of operation.<br>
+At this point, the subfolder <code>YYYY-MM-DD_hh.mm.ss</code> (e.g., 2024-06-24_15.31.22) is created in the folder specified by the user, the copying process begins, and the files from the target drive are copied to the newly created subfolder.<br>
+If an error occurs during the copy process (e.g., the target drive is removed), its description will be stored in the <code>_CrashReport.txt</code> log file, which will be saved in the folder initially specified by the user.<br>
+Whether the copy process ends successfully or abnormally, USB Drive Data Stealer will remove itself from the Windows traybar and self-terminate.<br>
 <br>
-About the keyword:
+Notes:
 <ul>
   <li>
-    If the keyword is contained in another word (e.g. keyword = <b>example</b> and word = counter<b>example</b>s), it will still be recognized.
+    al posto del timer usare l'evento di collegamento usb
+  </li>
+
+  <li>
+    prendo sempre l'ultimo drive, potrebbe non essere quello giusto
+  </li>
+
+  <li>
+    non posso gestire + drive connessi assieme
+  </li>
+
+  <li>
+    devo riaprire il programma se voglio farlo ripartire x un altra chiavetta
+  </li>
+
+  <li>
+    mi nascondo dal task manager x non farmi vedere
   </li>
   
-  <li>
-    Keyword searching is case insensitive (e.g. keyword = hello and word = HeLLo is equivalent to keyword = hello and word = hello).
-  </li>
-  
-  <li>
-    The keyword can contain any symbol (therefore, for example, it can also be an hashtag), with the exception of spaces (otherwise you would be entering several keywords and not just one).
-  </li>
 </ul>
 
-If matches are found (listed as Instagram image <a href="https://elfsight.com/blog/2015/10/how-to-get-instagram-photo-shortcode/" target="_blank" rel="noopener noreferrer">shortcodes</a>), just tap on one to view the matching post and its caption. The post will be shown through your device’s default browser (or through the Instagram app (if it's installed)).
+dire ch equindi è sperimentale e migliorabile. questo è solo uno spunto.
 
 <h2>What do I need to execute USB Drive Data Stealer? &#9654;</h2>
 You'll need two things:
