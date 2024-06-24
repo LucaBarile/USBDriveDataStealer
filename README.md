@@ -8,6 +8,22 @@ Responsibility for consequences of using this application remains with the user;
 It's a simple tool that steals a drive's data when it is connected to your pc.<br>
 It's currently programmed to steal <b>removable drive</b> (USB flash drives, external hard disks, ...) or <b>CD\DVD</b> data only, but can be easily modified to steal data from <a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.drivetype?view=net-8.0#fields" target="_blank" rel="noopener noreferrer">these</a> drives as well, by simply modifying the if clause <code>if (newDrive.DriveType == DriveType.Removable || ...)</code> of the <code>TMRwaitForDrive_Tick(...)</code> function.
 
+<h2>What do I need to execute USB Drive Data Stealer? &#9654;</h2>
+You'll need two things:
+<ol>
+  <li>
+    The .NET Framework<br>
+    I wrote USB Drive Data Stealer in C# for .NET Frameowrk 4.5 using Visual Studio 2019 so, in order to run it, you must have that version of the framework (or a later one) installed.<br>
+    If it isn't already installed on your OS, you can download it from <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30653" target="_blank" rel="noopener noreferrer">here</a>.
+  </li>
+
+  <li>
+    USBDriveDataStealer.exe<br>
+    You can download it directly from <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.exe" target="_blank" rel="noopener noreferrer">here</a>.<br>
+    If you want to compile it or modify its source code, you can download the zipped project <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.zip" target="_blank" rel="noopener noreferrer">here</a> and recompile it.
+  </li>
+</ol>
+
 <h2>Three different modes of operation &#49;&#65039;&#8419; &#50;&#65039;&#8419; &#51;&#65039;&#8419;</h2>
 When someone plugs a USB drive into our PC, we don't know how long they will leave it plugged in.<br>
 Suppose, for example, someone asks you to copy some files to their USB drive. Probably the copying of the files will not last very long.... Will USB Drive Data Stealer be able to steal all the contents of the USB drive in time?<br>
@@ -34,6 +50,13 @@ To solve this possible problem I implemented three different modes of operation:
   </li>
 </ol>
 
+<h2>How it works? &#9881;&#65039;</h2>
+After selecting the mode of operation, the folder to save the stolen files and pressing the <code>BTNwait</code> ("Wait for USB Drive connection") button, USB Drive Data Stealer will be minimized to the Windows traybar, store the list of all drives currently connected to the PC (let's call it L1) and wait for a drive to be plugged into the PC.<br>
+Detecting the connection of a new drive to the PC is done by the <code>TMRwaitForDrive</code> timer. It compares, every five seconds, the list of drives currently connected to the PC (let's call it L2) with L1. If L2 contains more drives than those listed in L1, the last drive listed in L2 is considered the target drive to steal files from, according to the user-specified mode of operation.<br>
+At this point, the subfolder <code>YYYY-MM-DD_hh.mm.ss</code> (e.g., 2024-06-24_15.31.22) is created in the folder specified by the user, the copying process begins, and the files from the target drive are copied to the newly created subfolder.<br>
+If an error occurs during the copy process (e.g., the target drive is removed), its description will be stored in the <code>_CrashReport.txt</code> log file, which will be saved in the folder initially specified by the user.<br>
+Whether the copy process ends successfully or abnormally, USB Drive Data Stealer will remove itself from the Windows traybar and self-terminate.<br>
+
 <h2>Demo &#127910;</h2>
 This demonstration shows the execution of USB Drive Data Stealer, set to run in the first mode of operation (&quot;Steal all device files&quot;).<br>
 <br>
@@ -41,14 +64,7 @@ This demonstration shows the execution of USB Drive Data Stealer, set to run in 
   <img src="DemoAllFiles.gif" title="IGPF is downloading the barol92 JSON files">
 </p>
 
-<h2>How it works? &#9881;&#65039;</h2>
-After selecting the mode of operation, the folder to save the stolen files and pressing the <code>BTNwait</code> ("Wait for USB Drive connection") button, USB Drive Data Stealer will be minimized to the Windows traybar, store the list of all drives currently connected to the PC (let's call it L1) and wait for a drive to be plugged into the PC.<br>
-Detecting the connection of a new drive to the PC is done by the <code>TMRwaitForDrive</code> timer. It compares, every five seconds, the list of drives currently connected to the PC (let's call it L2) with L1. If L2 contains more drives than those listed in L1, the last drive listed in L2 is considered the target drive to steal files from, according to the user-specified mode of operation.<br>
-At this point, the subfolder <code>YYYY-MM-DD_hh.mm.ss</code> (e.g., 2024-06-24_15.31.22) is created in the folder specified by the user, the copying process begins, and the files from the target drive are copied to the newly created subfolder.<br>
-If an error occurs during the copy process (e.g., the target drive is removed), its description will be stored in the <code>_CrashReport.txt</code> log file, which will be saved in the folder initially specified by the user.<br>
-Whether the copy process ends successfully or abnormally, USB Drive Data Stealer will remove itself from the Windows traybar and self-terminate.<br>
-<br>
-Notes and limitations:
+<h2>Notes, limitations and improvements &#128466;&#128721;&#128736;</h2>
 <ul>
   <li>
     Instead of using a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.timers.timer" target="_blank" rel="noopener noreferrer">Timer</a> to detect the arrival\removal of a new drive, you can use the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.management.managementeventwatcher" target="_blank" rel="noopener noreferrer">ManagementEventWatcher</a> class associated with the <code>SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2</code> <a href="https://learn.microsoft.com/it-it/dotnet/api/system.management.wqleventquery"target="_blank" rel="noopener noreferrer">WqlEventQuery</a> where, according to the <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-volumechangeevent#properties" target="_blank" rel="noopener noreferrer">properties</a> of the <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-volumechangeevent" target="_blank" rel="noopener noreferrer">Win32_VolumeChangeEvent</a> class, 2 = Device Arrival and 3 = Device Removal.<br>
@@ -70,28 +86,12 @@ This means that the user must re-run the program before another drive is plugged
   </li>
 
   <li>
-    mi nascondo dal task manager x non farmi vedere
+    USB Drive Data Stealer isn't displayed in the Windows taskbar and in the list of active processes shown by the task manager, in order to avoid possible suspicion by the user connecting the drive to the PC.
   </li>
   
 </ul>
 
 dire ch equindi è sperimentale e migliorabile. questo è solo uno spunto.
-
-<h2>What do I need to execute USB Drive Data Stealer? &#9654;</h2>
-You'll need two things:
-<ol>
-  <li>
-    The .NET Framework<br>
-    I wrote USB Drive Data Stealer in C# for .NET Frameowrk 4.5 using Visual Studio 2019 so, in order to run it, you must have that version of the framework (or a later one) installed.<br>
-    If it isn't already installed on your OS, you can download it from <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30653" target="_blank" rel="noopener noreferrer">here</a>.
-  </li>
-
-  <li>
-    USBDriveDataStealer.exe<br>
-    You can download it directly from <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.exe" target="_blank" rel="noopener noreferrer">here</a>.<br>
-    If you want to compile it or modify its source code, you can download the zipped project <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.zip" target="_blank" rel="noopener noreferrer">here</a> and recompile it.
-  </li>
-</ol>
 
 <h2>Aims of the program &#127919;</h2>
 <ul>
@@ -117,8 +117,7 @@ You'll need two things:
 <h2>Download links &#128229;</h2>
 <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.exe" target="_blank" rel="noopener noreferrer">Here</a> you can download USBDriveDataStealer.exe<br>
 <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.zip" target="_blank" rel="noopener noreferrer">Here</a> you can download the Visual Studio 2019 zipped project.<br>
-<br>
-<hr>
+
+<h2>What more can I do? &#129300;</h2>
 <a href="https://lucabarile.github.io/" target="_blank">Here</a> you can visit my website &#127760;<br>
-<a href="https://www.buymeacoffee.com/LucaBarile" target="_blank">Here</a> you can buy me a unicorn &#129412;
-<hr>
+<a href="https://www.buymeacoffee.com/LucaBarile" target="_blank">Here</a> you can buy me a unicorn &#129412;<br>
