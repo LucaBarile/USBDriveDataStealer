@@ -51,11 +51,13 @@ Whether the copy process ends successfully or abnormally, USB Drive Data Stealer
 Notes:
 <ul>
   <li>
-    al posto del timer usare l'evento di collegamento usb
+    Instead of using a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.timers.timer" target="_blank" rel="noopener noreferrer">Timer</a> to detect the arrival\removal of a new drive, you can use the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.management.managementeventwatcher" target="_blank" rel="noopener noreferrer">ManagementEventWatcher</a> class associated with the <code>SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2</code> <a href="https://learn.microsoft.com/it-it/dotnet/api/system.management.wqleventquery"target="_blank" rel="noopener noreferrer">WqlEventQuery</a> where, according to the <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-volumechangeevent#properties" target="_blank" rel="noopener noreferrer">properties</a> of the <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-volumechangeevent" target="_blank" rel="noopener noreferrer">Win32_VolumeChangeEvent</a> class, 2 = Device Arrival and 3 = Device Removal.<br>
   </li>
 
   <li>
-    prendo sempre l'ultimo drive, potrebbe non essere quello giusto
+    Considering the last L2 drive as the target drive from which to steal files is an idea that probably works in the vast majority of cases, but it may not always work.<br>
+The drives listed in L2 are listed with letters that follow an ascending order. Usually the first drive is C (where the OS is installed), if the hard drive has two partitions the second drive will be D, and if a USB flash drive is inserted, it will probably be named with the letter E.<br>
+So far so good but... What would happen if the user inserted two floppy disks? According to the <a href="https://en.wikipedia.org/wiki/Drive_letter_assignment#Common_assignments" target="_blank" rel="noopener noreferrer">common drive letter assignments</a>, the first floppy would be assigned the letter A and the second would be assigned the letter B. Then the algorithm would choose hard disk partition D (the last L2 drive) as the target drive from which to copy the data, failing miserably &#128514;
   </li>
 
   <li>
