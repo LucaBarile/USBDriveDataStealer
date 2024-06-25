@@ -76,7 +76,7 @@ This demonstration shows the execution of USB Drive Data Stealer, set to run in 
   <li>
     Considering the last L2 drive as the target drive from which to steal files is an idea that probably works in the vast majority of cases, but it may not always work.<br>
 The drives listed in L2 are listed with letters that follow an ascending order. Usually the first drive is C (where the OS is installed), if the hard drive has two partitions the second drive will be D, and if a USB flash drive is plugged in, it will probably be named with the letter E.<br>
-So far so good but... What would happen if the user inserted two floppy disks (hey! Who the hell still uses floppy disks?! &#128552;)? According to the <a href="https://en.wikipedia.org/wiki/Drive_letter_assignment#Common_assignments" target="_blank" rel="noopener noreferrer">common drive letter assignments</a>, the first floppy would be assigned the letter A and the second would be assigned the letter B. Then the algorithm would choose hard disk partition D (the last L2 drive) as the target drive from which to copy the data, failing miserably &#129318;&#128514;
+So far so good but... What would happen if the user inserted two floppy disks (hey! Who the hell still uses floppy disks?! &#128552;) instead of a USB flash drive?? According to the <a href="https://en.wikipedia.org/wiki/Drive_letter_assignment#Common_assignments" target="_blank" rel="noopener noreferrer">common drive letter assignments</a>, the first floppy would be assigned the letter A and the second would be assigned the letter B. Then the algorithm would choose hard disk partition D (the last L2 drive) as the target drive from which to copy the data, failing miserably &#129318;&#128514;
   </li>
 
   <li>
