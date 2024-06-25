@@ -23,6 +23,7 @@ You'll need two things:
     If you want to compile it or modify its source code, you can download the zipped project <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.zip" target="_blank" rel="noopener noreferrer">here</a> and recompile it.
   </li>
 </ol>
+<ins>Theoretically</ins>, USBDriveDataStealer.exe shouldn't be considered as malware by antivirus software, but if it is, you have to add it to the exceptions in order to run it properly.
 
 <h2>Three different modes of operation &#49;&#65039;&#8419; &#50;&#65039;&#8419; &#51;&#65039;&#8419;</h2>
 When someone plugs a USB drive into our PC, we don't know how long they will leave it plugged in.<br>
@@ -126,7 +127,7 @@ Feel free to <a href="https://docs.github.com/en/pull-requests/collaborating-wit
   <li>
     Make yourself aware that by plugging an USB drive into a device, you are always exposing its data to a potential risk.<br>
     This is true even if the device belongs to a person you know and trust; it may have been infected by a malware that, among other malicious actions, could do exactly what USB Drive Data Stealer does, sending the collected data to the attacker.<br>
-    You could solve the problem by using a USB drive containing nonconfidential files whose theft and/or publication would not be a problem for you.
+    You could solve the problem by using a USB drive containing nonconfidential files whose theft and/or publication wouldn't be a problem for you.
   </li>
   
   <li>
