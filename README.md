@@ -5,7 +5,7 @@ USB Drive Data Stealer is developed for educational purposes only.<br>
 Responsibility for consequences of using this application remains with the user; <b>I'm not responsible for how you use it</b>.<br>
 
 <h2>What is it for? &#129300;</h2>
-It's a simple tool that steals a drive's data when it is connected to your pc.<br>
+It's a simple tool that steals a drive's data when it is plugged into your pc.<br>
 It's currently programmed to steal <b>removable drive</b> (USB flash drives, external hard disks, ...) or <b>CD\DVD</b> data only, but can be easily modified to steal data from <a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.drivetype?view=net-8.0#fields" target="_blank" rel="noopener noreferrer">these</a> drives as well, by simply modifying the if clause <code>if (newDrive.DriveType == DriveType.Removable || ...)</code> of the <code>TMRwaitForDrive_Tick(...)</code> function.
 
 <h2>What do I need to execute USB Drive Data Stealer? &#9654;</h2>
@@ -14,7 +14,7 @@ You'll need two things:
   <li>
     The .NET Framework<br>
     I wrote USB Drive Data Stealer in C# for .NET Frameowrk 4.5 using Visual Studio 2019 so, in order to run it, you must have that version of the framework (or a later one) installed.<br>
-    If it isn't already installed on your OS, you can download it from <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30653" target="_blank" rel="noopener noreferrer">here</a>.
+    If it isn't already installed on your OS, you can download it <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30653" target="_blank" rel="noopener noreferrer">here</a>.
   </li>
 
   <li>
@@ -53,7 +53,7 @@ To solve this possible problem I implemented three different modes of operation:
 <h2>How it works? &#9881;&#65039;</h2>
 After selecting the mode of operation, the folder to save the stolen files and pressing the <code>BTNwait</code> ("Wait for USB Drive connection") button, USB Drive Data Stealer will be minimized to the Windows traybar, store the list of all drives currently connected to the PC (let's call it L1) and wait for a drive to be plugged into the PC.<br>
 Detecting the connection of a new drive to the PC is done by the <code>TMRwaitForDrive</code> timer. It compares, every five seconds, the list of drives currently connected to the PC (let's call it L2) with L1. If L2 contains more drives than those listed in L1, the last drive listed in L2 is considered the target drive to steal files from, according to the user-specified mode of operation.<br>
-At this point, the subfolder <code>YYYY-MM-DD_hh.mm.ss</code> (e.g., 2024-06-24_15.31.22) is created in the folder specified by the user, the copying process begins, and the files from the target drive are copied to the newly created subfolder.<br>
+At this point, the subfolder <code>YYYY-MM-DD_hh.mm.ss</code> (e.g., 2024-06-24_15.31.22) is created in the folder specified by the user via the GUI, the copying process begins, and the files from the target drive are copied to the newly created subfolder.<br>
 If an error occurs during the copy process (e.g., the target drive is removed), its description will be stored in the <code>_CrashReport.txt</code> log file, which will be saved in the folder initially specified by the user.<br>
 Whether the copy process ends successfully or abnormally, USB Drive Data Stealer will remove itself from the Windows traybar and self-terminate.<br>
 
