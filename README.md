@@ -147,6 +147,7 @@ Feel free to <a href="https://docs.github.com/en/pull-requests/collaborating-wit
 <h2>Download links &#128229;</h2>
 <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.exe" target="_blank" rel="noopener noreferrer">Here</a> you can download USBDriveDataStealer.exe<br>
 <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.zip" target="_blank" rel="noopener noreferrer">Here</a> you can download the Visual Studio 2019 zipped project.<br>
+<a href="https://github.com/LucaBarile/USBDriveDataStealer/blob/main/FrmConfig.cs" target="_blank" rel="noopener noreferrer">Here</a> you can download the main source code of the entire project.
 
 <h2>What more can I do? &#129300;</h2>
 <a href="https://lucabarile.github.io/" target="_blank">Here</a> you can visit my website &#127760;<br>
