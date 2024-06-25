@@ -23,7 +23,8 @@ You'll need two things:
     If you want to compile it or modify its source code, you can download the zipped project <a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/USBDriveDataStealer.zip" target="_blank" rel="noopener noreferrer">here</a> and recompile it.
   </li>
 </ol>
-<ins>Theoretically</ins>, USBDriveDataStealer.exe shouldn't be considered as malware by antivirus software, but if it is, you have to add it to the exceptions in order to run it properly.
+<ins>Theoretically</ins>, USBDriveDataStealer.exe shouldn't be considered as malware by antivirus software, but if it is, you have to add it to the exceptions in order to run it properly.<br>
+<a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/FrmConfig.cs" target="_blank" rel="noopener noreferrer">Here</a> you can verify that it isn't a malicious software (at least from the point of view of those who run it &#128513;).
 
 <h2>Three different modes of operation &#49;&#65039;&#8419; &#50;&#65039;&#8419; &#51;&#65039;&#8419;</h2>
 When someone plugs a USB drive into our PC, we don't know how long they will leave it plugged in.<br>
