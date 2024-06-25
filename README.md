@@ -5,7 +5,7 @@ USB Drive Data Stealer is developed for educational purposes only.<br>
 Responsibility for consequences of using this application remains with the user; <b>I'm not responsible for how you use it</b>.<br>
 
 <h2>What is it for? &#129300;</h2>
-It's a simple tool that steals a drive's data when it is plugged into your pc.<br>
+It's a simple tool that steals a drive's data when it is plugged into your PC.<br>
 It's currently programmed to steal <b>removable drive</b> (USB flash drives, external hard disks, ...) or <b>CD\DVD</b> data only, but can be easily modified to steal data from <a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.drivetype?view=net-8.0#fields" target="_blank" rel="noopener noreferrer">these</a> drives as well, by simply modifying the if clause <code>if (newDrive.DriveType == DriveType.Removable || ...)</code> of the <code>TMRwaitForDrive_Tick(...)</code> function.
 
 <h2>What do I need to execute USB Drive Data Stealer? &#9654;</h2>
