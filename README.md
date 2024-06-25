@@ -28,7 +28,7 @@ You'll need two things:
 
 <h2>Three different modes of operation &#49;&#65039;&#8419; &#50;&#65039;&#8419; &#51;&#65039;&#8419;</h2>
 When someone plugs a USB drive into our PC, we don't know how long they will leave it plugged in.<br>
-Suppose, for example, someone asks you to copy some files to their USB drive. Probably the copying of the files will not last very long.... Will USB Drive Data Stealer be able to steal all the contents of the USB drive in time?<br>
+Suppose, for example, someone asks you to copy some files to their USB drive. Probably the copying of the files will not last very long... Will USB Drive Data Stealer be able to steal all the contents of the USB drive in time?<br>
 <br>
 To solve this possible problem I implemented three different modes of operation:
 <ol>
