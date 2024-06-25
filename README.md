@@ -73,8 +73,8 @@ This demonstration shows the execution of USB Drive Data Stealer, set to run in 
 
   <li>
     Considering the last L2 drive as the target drive from which to steal files is an idea that probably works in the vast majority of cases, but it may not always work.<br>
-The drives listed in L2 are listed with letters that follow an ascending order. Usually the first drive is C (where the OS is installed), if the hard drive has two partitions the second drive will be D, and if a USB flash drive is inserted, it will probably be named with the letter E.<br>
-So far so good but... What would happen if the user inserted two floppy disks? According to the <a href="https://en.wikipedia.org/wiki/Drive_letter_assignment#Common_assignments" target="_blank" rel="noopener noreferrer">common drive letter assignments</a>, the first floppy would be assigned the letter A and the second would be assigned the letter B. Then the algorithm would choose hard disk partition D (the last L2 drive) as the target drive from which to copy the data, failing miserably &#128514;
+The drives listed in L2 are listed with letters that follow an ascending order. Usually the first drive is C (where the OS is installed), if the hard drive has two partitions the second drive will be D, and if a USB flash drive is plugged in, it will probably be named with the letter E.<br>
+So far so good but... What would happen if the user inserted two floppy disks (hey! Who the hell still uses floppy disks?! &#128552;)? According to the <a href="https://en.wikipedia.org/wiki/Drive_letter_assignment#Common_assignments" target="_blank" rel="noopener noreferrer">common drive letter assignments</a>, the first floppy would be assigned the letter A and the second would be assigned the letter B. Then the algorithm would choose hard disk partition D (the last L2 drive) as the target drive from which to copy the data, failing miserably &#129318;&#128514;
   </li>
 
   <li>
@@ -83,15 +83,15 @@ So far so good but... What would happen if the user inserted two floppy disks? A
 
   <li>
     If USB Drive Data Stealer finishes copying the files of one drive and, later, another drive (or more than one) is plugged in, no more files will be copied because, as mentioned before, the application self-terminates at the end of the copying process.<br>
-This means that the user must re-run the program before another drive is plugged in.
+This means that the user must re-run the program before another drive is plugged in, if they want to copy its files as well.
   </li>
 
   <li>
-    USB Drive Data Stealer isn't displayed in the Windows taskbar and in the list of active processes shown by the task manager, in order to avoid possible suspicion by the user connecting the drive to the PC.
+    USB Drive Data Stealer isn't displayed in the Windows taskbar and in the list of active processes shown by the Windows Task Manager, in order to avoid possible suspicion by the user connecting the drive to the PC.
   </li>
 
   <li>
-    The "YYYY-MM-DD_hh.mm.ss" format of the subdirectory described above prevents the overwriting of data stolen from different drives on the same day.
+    The <code>YYYY-MM-DD_hh.mm.ss</code> format of the subdirectory described above, prevents the overwriting of data stolen from different drives on the same day.
   </li>
 </ol>
 
@@ -114,7 +114,7 @@ As you can read, there are several changes and improvements that can be applied 
   </li>
 
   <li>
-    Prevent safe removal of the drive if USB Drive Data Stealer has not finished copying the files to the PC yet.
+    Prevent safe removal of the drive if USB Drive Data Stealer hasn't finished copying the files to the PC yet.
   </li>
 </ul>
 
