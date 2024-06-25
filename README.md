@@ -24,7 +24,7 @@ You'll need two things:
   </li>
 </ol>
 <ins>Theoretically</ins>, USBDriveDataStealer.exe shouldn't be considered as malware by antivirus software, but if it is, you have to add it to the exceptions in order to run it properly.<br>
-<a href="https://github.com/LucaBarile/USBDriveDataStealer/raw/main/FrmConfig.cs" target="_blank" rel="noopener noreferrer">Here</a> you can verify that it isn't a malicious software (at least from the point of view of those who run it &#128513;).
+<a href="https://github.com/LucaBarile/USBDriveDataStealer/blob/main/FrmConfig.cs" target="_blank" rel="noopener noreferrer">Here</a> you can verify that it isn't a malicious software (at least from the point of view of those who run it &#128513;).
 
 <h2>Three different modes of operation &#49;&#65039;&#8419; &#50;&#65039;&#8419; &#51;&#65039;&#8419;</h2>
 When someone plugs a USB drive into our PC, we don't know how long they will leave it plugged in.<br>
